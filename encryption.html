@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    Encryption program code:     (I am not very good at HTML spacing)
+    <br></br>
+
+    stringInput = input('Enter a string to encrypt: ')
+    <br></br>
+    encryptCode = int(input('Enter the string shift: '))
+    <br></br>
+    print("In 'encrypt.txt' you will find your encrypted message")
+    <br></br>
+    def encrypt(string,encryptKey):
+    <br></br>
+    <pre>
+        myFile = open('encrypt.txt','w')
+        <br></br>
+        encryptedString = []
+        <br></br>
+        for x in range(len(string)):
+        <br></br>
+        <pre>
+            numVal = ord(string[x])
+            <br></br>
+            numVal = numVal - encryptKey + x
+            <br></br>
+            encryptChar = chr(numVal)
+            <br></br>
+            encryptedString.append(encryptChar)
+            <br></br>
+        </pre>
+        for z in range(len(encryptedString)):
+        <pre>
+        <br></br>
+            myFile.write(encryptedString[z])
+            <br></br>
+        </pre>
+        myFile.close()
+        <br></br>
+    </pre>
+
+    def decrypt(string,encryptKey):
+    <pre>
+    <br></br>
+        decryptedString = []
+        <br></br>
+        for y in range(len(string)):
+        <pre>
+        <br></br>
+            numVal = ord(string[y])
+            <br></br>
+            numVal = numVal + encryptKey - y
+            <br></br>
+            decryptChar = chr(numVal)
+            <br></br>
+            decryptedString.append(decryptChar)
+            <br></br>
+        </pre>
+        for c in range(len(decryptedString)):
+        <pre>
+        <br></br>
+            print(decryptedString[c],end="") 
+        </pre>
+            <br></br>
+        print(' is your decrypted string')     
+        <br></br>
+    </pre>        
+    encrypt(stringInput,encryptCode)
+    <br></br>
+    
+    myFile = open('encrypt.txt','r')
+    <br></br>
+    read = myFile.read()
+    <br></br>
+    print('Your encrypted message is:',read)
+    <br></br>
+    decrypt(read,encryptCode)
+    <br></br>
+    myFile.close()
+    <br></br>
+
+
+
+</html>
