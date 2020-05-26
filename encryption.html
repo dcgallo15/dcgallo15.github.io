@@ -1,83 +1,51 @@
 <!DOCTYPE html>
 <html>
-    Encryption program code:     (I am not very good at HTML spacing)
-    <br></br>
 
-    stringInput = input('Enter a string to encrypt: ')
-    <br></br>
-    encryptCode = int(input('Enter the string shift: '))
-    <br></br>
-    print("In 'encrypt.txt' you will find your encrypted message")
-    <br></br>
-    def encrypt(string,encryptKey):
-    <br></br>
-    <pre>
-        myFile = open('encrypt.txt','w')
-        <br></br>
-        encryptedString = []
-        <br></br>
-        for x in range(len(string)):
-        <br></br>
+    <p1>Encrytion Program Code: </p1>
+    <p id = "code">
         <pre>
-            numVal = ord(string[x])
-            <br></br>
-            numVal = numVal - encryptKey + x
-            <br></br>
-            encryptChar = chr(numVal)
-            <br></br>
-            encryptedString.append(encryptChar)
-            <br></br>
-        </pre>
-        for z in range(len(encryptedString)):
-        <pre>
-        <br></br>
-            myFile.write(encryptedString[z])
-            <br></br>
-        </pre>
-        myFile.close()
-        <br></br>
-    </pre>
+            <code>
+                stringInput = input('Enter a string to encrypt: ')
+                encryptCode = int(input('Enter the string shift: '))
 
-    def decrypt(string,encryptKey):
-    <pre>
-    <br></br>
-        decryptedString = []
-        <br></br>
-        for y in range(len(string)):
-        <pre>
-        <br></br>
-            numVal = ord(string[y])
-            <br></br>
-            numVal = numVal + encryptKey - y
-            <br></br>
-            decryptChar = chr(numVal)
-            <br></br>
-            decryptedString.append(decryptChar)
-            <br></br>
-        </pre>
-        for c in range(len(decryptedString)):
-        <pre>
-        <br></br>
-            print(decryptedString[c],end="") 
-        </pre>
-            <br></br>
-        print(' is your decrypted string')     
-        <br></br>
-    </pre>        
-    encrypt(stringInput,encryptCode)
-    <br></br>
-    
-    myFile = open('encrypt.txt','r')
-    <br></br>
-    read = myFile.read()
-    <br></br>
-    print('Your encrypted message is:',read)
-    <br></br>
-    decrypt(read,encryptCode)
-    <br></br>
-    myFile.close()
-    <br></br>
+                print("In 'encrypt.txt' you will find your encrypted message")
 
-    <a href = 'index.html'>Back to the main page</a>
+                def encrypt(string,encryptKey):
+                    myFile = open('encrypt.txt','w')
+                    encryptedString = []
+                    for x in range(len(string)):
+                        numVal = ord(string[x])
+                        numVal = numVal - encryptKey + x
+                        encryptChar = chr(numVal)
+                        encryptedString.append(encryptChar)
+                    
+                    for z in range(len(encryptedString)):
+                        myFile.write(encryptedString[z])
+                    myFile.close()
+                        
+                def decrypt(string,encryptKey):
+                    decryptedString = []
+                    for y in range(len(string)):
+                        numVal = ord(string[y])
+                        numVal = numVal + encryptKey - y
+                        decryptChar = chr(numVal)
+                        decryptedString.append(decryptChar)
+                        
+                    for c in range(len(decryptedString)):
+                        print(decryptedString[c],end="") 
+                    print(' is your decrypted string')     
+                        
+                encrypt(stringInput,encryptCode)
+
+                myFile = open('encrypt.txt','r')
+                read = myFile.read()
+                print('Your encrypted message is:',read)
+                decrypt(read,encryptCode)
+                myFile.close()
+
+
+            </code>
+        </pre>
+    </p>
 
 </html>
